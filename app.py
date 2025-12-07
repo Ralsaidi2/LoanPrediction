@@ -155,11 +155,11 @@ input_raw = pd.DataFrame({
     "Lender": [lender_map[lender_pretty]]
 })
 
-# # One-hot encode using the coded columns
-# input_encoded = pd.get_dummies(
-#     input_raw,
-#     columns=["Reason", "Employment_Status", "Employment_Sector", "Lender"]
-# )
+# One-hot encode using the coded columns
+input_encoded = pd.get_dummies(
+    input_raw,
+    columns=["Reason", "Employment_Status", "Employment_Sector", "Lender"]
+)
 
 # Align to exactly the 21 selected model features
 input_encoded = input_encoded.reindex(columns=SELECTED_FEATURES, fill_value=0)
